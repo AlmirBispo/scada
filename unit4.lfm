@@ -1,0 +1,111 @@
+object Form4: TForm4
+  Left = 343
+  Height = 328
+  Top = 237
+  Width = 333
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsToolWindow
+  Caption = 'Simulate'
+  ClientHeight = 328
+  ClientWidth = 333
+  Color = clWindow
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -12
+  Font.Name = 'Courier New'
+  Font.Pitch = fpFixed
+  Font.Quality = fqDraft
+  OnClose = FormClose
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '2.0.6.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 200
+    Top = 56
+    Width = 333
+    Align = alTop
+    AlternateColor = clBtnShadow
+    BorderStyle = bsNone
+    Color = clActiveBorder
+    Columns = <>
+    DataSource = Datasource1
+    FixedColor = clActiveBorder
+    FixedHotColor = clActiveBorder
+    Flat = True
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 0
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -12
+    TitleFont.Name = 'Courier New'
+    TitleFont.Pitch = fpFixed
+    TitleFont.Quality = fqDraft
+    OnDblClick = DBGrid1DblClick
+  end
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 272
+    Width = 112
+    Caption = 'Run'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 208
+    Height = 25
+    Top = 272
+    Width = 112
+    Caption = 'Close'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 305
+    Width = 333
+    Panels = <    
+      item
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object GroupBox1: TGroupBox
+    Left = 0
+    Height = 56
+    Top = 0
+    Width = 333
+    Align = alTop
+    Caption = 'Simulation Time'
+    ClientHeight = 36
+    ClientWidth = 329
+    TabOrder = 4
+    object TrackBar1: TTrackBar
+      Left = 6
+      Height = 25
+      Top = 0
+      Width = 312
+      Frequency = 100
+      Max = 5000
+      OnChange = TrackBar1Change
+      Position = 0
+      TabOrder = 0
+    end
+  end
+  object sdf: TSdfDataSet
+    FileMustExist = True
+    ReadOnly = False
+    FieldDefs = <>
+    AllowMultiLine = False
+    Delimiter = ';'
+    FirstLineAsSchema = False
+    StripTrailingDelimiters = False
+    left = 306
+    top = 71
+  end
+  object Datasource1: TDataSource
+    DataSet = sdf
+    left = 232
+    top = 112
+  end
+end

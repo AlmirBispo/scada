@@ -1,0 +1,58 @@
+{*
+	(**~ YEHOVAH é o Nome do Santo ~**)
+	Adl desenvolvimento Ltda
+	Função que transforma um valor inteiro de 16 bits em hexadecimal string e que pode
+ser usado no desktop
+	EXEMPLO    intparahex(65536,'1'); //'0xffff'
+	Autor:Almir Bispo
+	Data:11/01/2015
+	Usado com aplicações Pascal
+*}
+
+function Intparahex(intvalor:integer;forma:string):string;
+var o1,o2,o3,o4:tstringlist;
+   i,ii,iii,iiii,ord:integer;
+   str,formato:string;
+begin
+if forma='0' then begin formato:='';end;
+if forma='1' then begin formato:='0x';end;
+o1:=tstringlist.create;
+o2:=tstringlist.create;
+o3:=tstringlist.create;
+o4:=tstringlist.create;
+o1.Delimiter:=char(';');
+o2.Delimiter:=char(';');
+o3.Delimiter:=char(';');
+o4.Delimiter:=char(';');
+
+o1.DelimitedText:=('0;1;2;3;4;5;6;7;8;9;a;b;c;d;e;f');
+o2.DelimitedText:=('0;1;2;3;4;5;6;7;8;9;a;b;c;d;e;f');
+o3.DelimitedText:=('0;1;2;3;4;5;6;7;8;9;a;b;c;d;e;f');
+o4.DelimitedText:=('0;1;2;3;4;5;6;7;8;9;a;b;c;d;e;f');
+ord:=0;
+for i:= 0 to o1.Count-1 do
+begin
+  for ii:= 0 to o2.count-1 do
+  begin
+    for iii:= 0 to o3.count-1 do
+    begin
+      for iiii:= 0 to o4.count-1 do
+      begin
+        if ord =intvalor then
+        begin
+        str:=o1.Strings[i]+o2.strings[ii]+o3.strings[iii]+o4.strings[iiii];
+          Result :=formato+str;
+        exit;
+        end;
+        inc(ord);
+      end;
+    end;
+  end;
+
+end;
+   o1.free;
+   o2.free;
+   o3.free;
+   o4.free;
+
+end;

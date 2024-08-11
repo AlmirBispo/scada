@@ -1,0 +1,12 @@
+PID;CLASS;TAG;WIDTH;HEIGHT;POSX;POSY;COLOR_FULL;COLOR_BK
+4002;@caldeira;tag;60;160;338;130;255;65280
+4003;@tag_status;tag;60;60;420;130;65280;0
+4004;@tag_status;tag;60;60;805;410;255;536870912
+4005;@tag_status;tag;60;60;880;410;65280;536870912
+4006;@tag_status;tag;60;60;801;123;255;0
+4007;@tag_status;tag;60;60;900;123;255;0
+4008;@tag_status;tag;60;60;1000;123;65280;0
+4009;@temporizador;tag;60;60;219;416;$fff;$ffffff
+400A;@tag_status;tag;60;60;320;416;65535;0
+400B;@tag_status;tag;60;60;420;416;65280;0
+400C;@tag_float;tag;60;60;86;93;33023;16777215

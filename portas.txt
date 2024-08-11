@@ -1,0 +1,155 @@
+//
+  function Porta_ADC(mv_ent:real):real;
+var res,parte,mv_s:real;
+begin
+parte:=(mv_ent/5.000)*4095; //0,001221001221001221001221001221
+//res:=0.700;
+     if (mv_ent) > 0 then
+     begin
+     mv_s:=(parte);
+     end;
+     result :=(mv_s);
+end;
+  //
+function Transistor_OD(mv_ent:real):real;  //dreno aberto
+var res,mv_s:real;
+begin
+res:=0.700;
+     if (mv_ent-res) >= 2.708 then
+     begin
+     mv_s:=(mv_ent-res);
+     end;
+     result :=mv_s;
+end;
+  //
+    function Porta_NAO_OU (e_0,e_1:integer):integer; //nor
+  var s_0:integer;
+begin
+	if (e_0=0) and (e_1 =0) then
+	begin
+	 e_0:= 0;
+	e_1:=0;
+	s_0:=1;
+	end
+	else
+	begin
+	s_0:=0;
+	end;
+   result :=s_0;
+end;
+  //
+   function Porta_OU (e_0,e_1:integer):integer; //or
+  var s_0:integer;
+begin
+	if (e_0>0) or (e_1 >0) then
+	begin
+	 e_0:= 1;
+	e_1:=1;
+	s_0:=1;
+	end
+	else
+	begin
+	s_0:=0;
+	end;
+   result :=s_0;
+end;
+  //
+  function Porta_E (e_0,e_1:integer):integer;//e
+  var s_0:integer;
+begin
+	if (e_0>0)and (e_1 >0) then
+	begin
+	 e_0:= 1;
+	e_1:=1;
+	s_0:=1;
+	end
+	else
+	begin
+	s_0:=0;
+	end;
+   result :=s_0;
+end;
+  //
+  function Porta_NAO (e_0:integer):integer; //not
+  var s_0:integer;
+begin
+	if (e_0=0) then
+	begin
+	 e_0:= 1;
+	s_0:=1;
+	end
+	else
+	begin
+	s_0:=0;
+	end;
+   result :=s_0;
+end;
+  //
+   function Porta_EXCLUSIVO_OU (e_0,e_1:integer):integer; //exclusive or
+  var s_0:integer;
+begin
+	if (e_0<>e_1) then
+	begin
+	 s_0:=1;
+	end
+	else
+	begin
+	s_0:=0;
+	end;
+   result :=s_0;
+end;
+  //
+    function Porta_EXCLUSIVO_NAO_OU (e_0,e_1:integer):integer; //exclusive nor
+  var s_0:integer;
+begin
+	if (e_0=e_1) then
+	begin
+	 s_0:=1;
+	end
+	else
+	begin
+	s_0:=0;
+	end;
+   result :=s_0;
+end;
+ //
+function Porta_NAO_E (e_0,e_1:integer):integer; //nand
+begin
+ result :=Porta_OU(Porta_NAO(e_0),Porta_NAO(e_1));
+end;
+//
+function Reg_piso(relogio,q7,q6,q5,q4,q3,q2,q1,q0:integer):integer;
+var s0,s1,s2,s3,s4,s5,s6,s7:integer;
+begin
+ //quando relogio e data estão em alta,saida está em alta
+ s0 :=Porta_OU(relogio,q0);
+s1 :=Porta_OU(relogio,q1);
+s2 :=Porta_OU(relogio,q2);
+s3 :=Porta_OU(relogio,q3);
+s4 :=Porta_OU(relogio,q4);
+s5 :=Porta_OU(relogio,q5);
+s6 :=Porta_OU(relogio,q6);
+s7 :=Porta_OU(relogio,q7);
+result:=s0+(s1*2)+(s2*4)+(s3*8)+(s4*16)+(s5*32)+(s6*64)+(s7*128);//
+
+end;
+  //
+function Reg_sipo(bites:integer):string; //registrado sipo
+var s:string;
+begin
+s:=strutils.intToBin(bites,8);
+result :=s;
+end;
+//
+function Clock(estado,freq:integer):integer;
+begin
+estado:=PORTA_NAO(estado);
+sleep(freq);
+result :=estado;
+end;
+ //
+ function IP(ipdado:variant):variant ;
+begin
+    result :=ipdado;
+end;
+  //

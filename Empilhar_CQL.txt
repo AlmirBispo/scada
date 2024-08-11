@@ -1,0 +1,31 @@
+{*
+Função para verificar sintaxe CQL
+Autor:Almir Bispo
+Data:17/10/2016
+Slogan:Yehovah é o Nome do Santo
+Dependencia: replace_adl.txt
+*}
+
+function Verificar_Sintaxe(str_e:string):string;
+begin
+
+str_e:=stringReplace(str_e,#32,'',[rfreplaceAll]);
+str_e:=stringReplace(str_e,#13,'',[rfreplaceAll]);
+str_e:=stringReplace(str_e,'{','',[rfreplaceAll]);
+str_e:=stringReplace(str_e,#9,'',[rfreplaceAll]);
+
+str_e:=stringReplace(str_e,'}',#13,[rfreplaceAll]);
+str_e:=stringReplace(str_e,#10,'',[rfreplaceAll]);
+str_e:=stringReplace(str_e,'(','"',[rfreplaceAll]);
+str_e:=stringReplace(str_e,')','"',[rfreplaceAll]);
+
+
+result:=str_e;
+end; 
+
+{
+//como usar:Recebe de inpout_comp.exe
+cql.LoadFromFile('inpout_comp.exe');
+//poe na entrada da pilha do CSV_PARSER
+m3.text:=Verificar_sintaxe(cql.text);  
+}         

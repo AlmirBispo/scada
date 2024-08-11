@@ -1,0 +1,18 @@
+//Yehovah é o Nome do Santo
+//indenta cql
+//autor:Almir Bispo
+//data:23/07/2015
+function Identar(identtexto:string):string;
+var i:integer;
+   str,conc:string;
+begin
+  for i:=1 to length(identtexto) do
+  begin
+   str:=copy(identtexto,i,1);
+   if str = '{' then begin str :=str+char(#13)+char(#10)+char(#9); end;
+   if str = ';' then begin str :=str+char(#13)+char(#10)+char(#9); end;
+   if str = '}' then begin str :=str+char(#13)+char(#10); end;
+   conc:=conc+str;
+  end;
+result :=conc;
+end;

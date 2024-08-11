@@ -1,0 +1,2 @@
+{PROCESS;@importar;(http://https://pnoise.sytes.net/services/user_password/PROCESS.csv);0;0;0;query=0;destino=0}
+{OBJ-CONFIG;@importar;(http://https://pnoise.sytes.net/services/user_password/OBJ-CONFIG.csv);0;0;0;query=0;destino=0}

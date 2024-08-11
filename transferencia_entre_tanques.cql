@@ -1,0 +1,20 @@
+{
+        C:\ADL_PROJETOS\SUPERVISORIO-MAQ-VIRTUAL\PROCESS;
+       -;
+       PID;
+       (0001);
+       (5);
+       (PID);
+       query=0;
+       to_field=2
+}
+ {
+        C:\ADL_PROJETOS\SUPERVISORIO-MAQ-VIRTUAL\PROCESS;
+       +;
+       PID;
+       (0005);
+       (5);
+       (PID);
+       query=0;
+       to_field=2
+}

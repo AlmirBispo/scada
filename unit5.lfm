@@ -1,0 +1,162 @@
+object Form5: TForm5
+  Left = 342
+  Height = 271
+  Top = 264
+  Width = 705
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsToolWindow
+  Caption = 'Import'
+  ClientHeight = 271
+  ClientWidth = 705
+  Color = clWindow
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Courier New'
+  Font.Pitch = fpFixed
+  Font.Quality = fqDraft
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '2.0.2.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 48
+    Top = 8
+    Width = 233
+    Caption = 'Remote Server (IP or DNS)'
+    ClientHeight = 27
+    ClientWidth = 229
+    TabOrder = 0
+    object Edit1: TEdit
+      Left = 6
+      Height = 24
+      Top = 0
+      Width = 216
+      Alignment = taCenter
+      TabOrder = 0
+      Text = '192.95.1.54'
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Height = 48
+    Top = 56
+    Width = 233
+    Caption = 'Username'
+    ClientHeight = 27
+    ClientWidth = 229
+    TabOrder = 1
+    object Edit2: TEdit
+      Left = 6
+      Height = 24
+      Top = 0
+      Width = 216
+      Alignment = taCenter
+      TabOrder = 0
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 8
+    Height = 48
+    Top = 104
+    Width = 233
+    Caption = 'Password'
+    ClientHeight = 27
+    ClientWidth = 229
+    TabOrder = 2
+    object Edit3: TEdit
+      Left = 6
+      Height = 26
+      Top = 0
+      Width = 216
+      Alignment = taCenter
+      EchoMode = emPassword
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Courier New'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+      PasswordChar = '*'
+      TabOrder = 0
+    end
+  end
+  object GroupBox4: TGroupBox
+    Left = 8
+    Height = 64
+    Top = 160
+    Width = 681
+    Caption = 'Time Import Update (ms)'
+    ClientHeight = 43
+    ClientWidth = 677
+    TabOrder = 3
+    object tb: TTrackBar
+      Left = 0
+      Height = 25
+      Top = 0
+      Width = 677
+      Frequency = 10
+      Max = 5000
+      Min = 100
+      OnChange = tbChange
+      Position = 500
+      Align = alTop
+      TabOrder = 0
+    end
+    object Label1: TLabel
+      Left = 0
+      Height = 16
+      Top = 27
+      Width = 677
+      Align = alBottom
+      Alignment = taCenter
+      Caption = '0'
+      ParentColor = False
+    end
+  end
+  object RadioButton1: TRadioButton
+    Left = 280
+    Height = 20
+    Top = 72
+    Width = 124
+    Caption = 'Enable Import'
+    OnChange = RadioButton1Change
+    TabOrder = 4
+  end
+  object RadioButton2: TRadioButton
+    Left = 520
+    Height = 20
+    Top = 72
+    Width = 132
+    Caption = 'Desable Import'
+    Checked = True
+    OnChange = RadioButton2Change
+    TabOrder = 5
+    TabStop = True
+  end
+  object Button1: TButton
+    Left = 16
+    Height = 25
+    Top = 232
+    Width = 115
+    Caption = 'Apply'
+    OnClick = Button1Click
+    TabOrder = 6
+  end
+  object Button2: TButton
+    Left = 576
+    Height = 25
+    Top = 232
+    Width = 115
+    Caption = 'Close'
+    OnClick = Button2Click
+    TabOrder = 7
+  end
+  object Timeimport: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = TimeimportTimer
+    left = 355
+    top = 215
+  end
+end

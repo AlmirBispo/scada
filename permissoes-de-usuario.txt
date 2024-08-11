@@ -1,0 +1,4 @@
+permissao padrao
+dominio: scada.dmn
+usuario: scada
+senha: all

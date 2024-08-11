@@ -1,0 +1,35 @@
+0001 ate 0014 (0 a 20)
+12 saidas ()
+
+A = 1 ate 20
+B = 21 ate 40
+C = 41 ate 60
+X = 221 ate 240
+(reservado de 241 ate 255)
+//saida digital
+A = (1)=ligar
+B =  (1+20)=ligar
+
+A = (2) desligar
+B = (2+20) desligar
+
+//saida pwm (16mhz)
+A = (3) pulso
+B = (3+20) pulso
+
+//entrada digital
+A = (4) entrada (digital 1/0)
+B = (4+20)...                
+
+//entrada analogica
+A = (5) entrada analogica digital
+B = (5+20)...
+
+//entrada p-noise
+A = (6) 
+B = (6 + 20)
+
+uso
+4 e 8 saida
+
+ADC
